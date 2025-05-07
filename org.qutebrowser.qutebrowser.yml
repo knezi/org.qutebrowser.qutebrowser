@@ -17,12 +17,12 @@ build-options:
     - SCCACHE_BIN=/app/bin/sccache
     - SCCACHE_DIR=/run/ccache/sccache
     - SCCACHE_CONF=/run/ccache/sccache/config
-command: /app/bin/qutebrowser
+command: qutebrowser
 rename-icon: qutebrowser
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
-    version: "6.8"
+    version: "24.08"
     add-ld-path: .
     no-autodownload: true
   org.qutebrowser.qutebrowser.Userscripts:
@@ -101,8 +101,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
-        tag: v3.4.0
-        commit: 5c899e304f1056a2a4c542cc564c3a01bebae53d
+        tag: v3.5.0
+        commit: 67d8e012a31219ac4cc5ee3e9cd6453e9262c5cf
         x-checker-data:
           is-main-source: true
           type: json
@@ -128,15 +128,6 @@ modules:
               type: anitya
               project-id: 227267
               url-template: https://github.com/mozilla/sccache/releases/download/v$version/sccache-v$version-x86_64-unknown-linux-musl.tar.gz
-#           - type: archive
-#             only-arches:
-#               - aarch64
-#             url: https://github.com/mozilla/sccache/releases/download/v0.3.0/sccache-v0.3.0-aarch64-unknown-linux-musl.tar.gz
-#             sha256: 9ae4e1056b3d51546fa42a4cbf8e95aa84a4b2b4c838f9114e01b7fef5c0abd0
-# #           x-checker-data:
-# #             type: anitya
-# #             project-id: 227267
-# #             url-template: https://github.com/mozilla/sccache/releases/download/v$version/sccache-v$version-aarch64-unknown-linux-musl.tar.gz
         cleanup:
           - '*'
 
@@ -248,17 +239,6 @@ modules:
               url-template: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-$version-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
               versions:
                 <: 0.14.0
-          # - type: file
-          #   only-arches:
-          #     - aarch64
-          #   url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.13.7-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
-          #   sha256: 0b6ac1219a809155057fd1f358f7ece03c3abd2e2991832ce5146825a9fa4160
-          #   x-checker-data:
-          #     type: anitya
-          #     project-id: 42653
-          #     url-template: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-$version-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
-          #     versions:
-          #       <: 0.14.0
         cleanup:
           - '*'
 
